@@ -1,0 +1,9 @@
+http://dtp.nci.nih.gov/yacds/download.html
+und
+http://dtpsearch.ncifcrf.gov/FTP/OPEN_BABEL_SMILES.TXT
+
+Created two activity-files:
+A structure was classified as active, if
+- at least one strain was >= 0.7 (ac_onestrain.class)
+- all strains were >= 0.7 (ac_allstrains.class)
+
