@@ -7,3 +7,12 @@ A structure was classified as active, if
 - at least one strain was >= 0.7 (ac_onestrain.class)
 - all strains were >= 0.7 (ac_allstrains.class)
 
+|-- README                             this file
+|-- ac.smi                             compounds in SMILES format
+|-- ac_allstrains.active               sfgm compatible input format (actives)
+|-- ac_allstrains.class                lazar and libfminer compatible input format (all)
+|-- ac_allstrains.inactive             sfgm compatible input format (inactives)
+|-- ac_onestrain.active                
+|-- ac_onestrain.class
+|-- ac_onestrain.inactive
+|-- conversion.rb                      conversion script in ruby that uses openbabel bindings
