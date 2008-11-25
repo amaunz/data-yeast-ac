@@ -13,6 +13,7 @@ File.open(ARGV[0].to_s, "r") { |file|
 
 	elsif (line.include?("t") && in_tree_and_no_edges)
 		puts tree_nr << " has no edges!"
+        tree_nr = line.split[2]
         end
     }
 }
