@@ -8,6 +8,7 @@ A structure was classified as active, if
 - all strains were >= 0.7 (ac_allstrains.class)
 
 |-- README                             this file
+
 |-- ac.smi                             compounds in SMILES format
 |-- ac_allstrains.active               sfgm compatible input format (actives)
 |-- ac_allstrains.class                lazar and libfminer compatible input format (all)
@@ -15,10 +16,17 @@ A structure was classified as active, if
 |-- ac_onestrain.active                
 |-- ac_onestrain.class
 |-- ac_onestrain.inactive
+
 |-- replace.rb                         restore correct numbering from ac.smi
 |-- sdf2gsp.pl                         convert SDF Molfile to gSpan input format
+|-- report.rb                          report trees without edges in gSpan file
+|-- remove.rb                          remove trees without edges in gSpan file
+
+
 
 1) Remove numbers from ac.smi file to obtain 1 SMILES per row in file ac.no_nr.smi
 2) do 'babel -ismi ac.no_nr.smi -osdf ac.sdf' to convert to MOL format
 3) do 'perl sdf2gsp.pl < ac.sdf > ac.no_nr.gsp' to convert to gSpan input format
-4) do 'ruby replace.rb ac.no_nr.gsp ac.smi > ac.gsp' to restore correct numbering from .smi file
+4) do 'ruby replace.rb ac.no_nr.gsp ac.smi > ac.f.gsp' to restore correct numbering from .smi file
+[ optional: do 'ruby report.rb ac.f.gsp > ac.gsp' to report trees without edges ]
+5) do 'ruby remove.rb ac.f.gsp > ac.gsp' to remove trees without edges
