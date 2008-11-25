@@ -15,4 +15,10 @@ A structure was classified as active, if
 |-- ac_onestrain.active                
 |-- ac_onestrain.class
 |-- ac_onestrain.inactive
-|-- conversion.rb                      conversion script in ruby that uses openbabel bindings
+|-- replace.rb                         restore correct numbering from ac.smi
+|-- sdf2gsp.pl                      convert SDF Molfile to gSpan input format
+
+1) Remove numbers from ac.smi file to obtain 1 SMILES per row in file ac.no_nr.smi
+2) do 'babel -ismi ac.no_nr.smi -osdf ac.sdf' to convert to MOL format
+3) do 'perl sdf2gsp < ac.sdf > ac.gsp' to convert to gSpan input format
+4) do 'ruby replace.rb ac.gsp ac.smi' to restore correct numbering from .smi fil
