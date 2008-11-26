@@ -21,4 +21,7 @@ File.open(ARGV[0].to_s, "r") { |file|
 		graph << line
         end
     }
+    if (!in_tree_and_no_edges) then
+	    puts graph
+    end
 }
