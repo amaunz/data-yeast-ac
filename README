@@ -9,19 +9,18 @@ A structure was classified as active, if
 
 |-- README                             this file
 
-|-- ac.smi                             compounds in SMILES format
-|-- ac_allstrains.active               sfgm compatible input format (actives)
-|-- ac_allstrains.class                lazar and libfminer compatible input format (all)
-|-- ac_allstrains.inactive             sfgm compatible input format (inactives)
-|-- ac_onestrain.active                
-|-- ac_onestrain.class
-|-- ac_onestrain.inactive
+|-- ac_alt.smi                         compounds in SMILES format
+|-- ac_alt_allstrains.active           sfgm compatible input format (actives)
+|-- ac_alt_allstrains.class            lazar and libfminer compatible input format (all)
+|-- ac_alt_allstrains.inactive         sfgm compatible input format (inactives)
+|-- ac_alt_onestrain.active
+|-- ac_alt_onestrain.class
+|-- ac_alt_onestrain.inactive
 
-|-- replace.rb                         restore correct numbering from ac.smi
-|-- sdf2gsp.pl                         convert SDF Molfile to gSpan input format
-|-- report.rb                          report trees without edges in gSpan file
 |-- remove.rb                          remove trees without edges in gSpan file
-
+|-- replace.rb                         restore correct numbering from ac.smi
+|-- report.rb                          report trees without edges in gSpan file
+|-- sdf2gsp.pl                         convert SDF Molfile to gSpan input format
 
 
 1) Remove numbers from ac.smi file to obtain 1 SMILES per row in file ac.no_nr.smi
@@ -33,123 +32,120 @@ A structure was classified as active, if
 [ optional: do 'ruby report.rb ac.gsp' to report trees without edges ]
 
 
-COMMENTS:
-a) postprocessing
-b) alternative database
+POSTPROCESSED THE DATA (IMPORTANT)!
+COMMENTS: 
+- Alternative Database (therefore the 'alt' in filenames).
+- These molecules were removed because OpenBabel could not generate sdf representations (too large, disconnected structures mainly):
 
-a) POSTPROCESSING THE DATA (IMPORTANT)!
-For this dataset, step 4) outputs the following, 
-corresponding 108 molecules are automatically removed by step 5):
+5031
+16650
+45737
+47151
+74830
+74831
+81722
+97431
+97432
+108044
+125066
+125176
+129841
+137054
+149501
+150861
+150862
+165152
+170365
+192747
+202916
+227262
+237671
+237674
+245501
+276381
+276382
+277096
+285116
+289432
+289435
+289437
+289438
+289441
+294979
+304425
+304426
+308875
+308876
+329515
+333856
+337383
+337714
+339281
+344028
+350895
+351907
+353255
+353262
+367921
+373961
+373962
+373963
+373964
+378338
+379667
+382177
+404853
+407811
+604841
+605851
+606307
+606960
+607637
+607771
+607772
+610690
+612825
+615271
+615272
+615273
+619229
+628081
+628083
+633248
+633251
+634598
+634600
+638382
+639600
+646251
+649864
+653140
+666457
+668432
+668433
+668572
+670002
+672460
+672462
+672464
+672465
+673905
+676773
+676774
+676776
+676777
+676779
+682797
+684747
+684901
+684902
+684907
+684908
+686303
+686304
+686305
 
-5031 has no edges!
-16650 has no edges!
-45737 has no edges!
-47151 has no edges!
-74830 has no edges!
-74831 has no edges!
-81722 has no edges!
-97431 has no edges!
-97432 has no edges!
-108044 has no edges!
-125066 has no edges!
-125176 has no edges!
-129841 has no edges!
-137054 has no edges!
-149501 has no edges!
-150861 has no edges!
-150862 has no edges!
-165152 has no edges!
-170365 has no edges!
-192747 has no edges!
-202916 has no edges!
-227262 has no edges!
-237671 has no edges!
-237674 has no edges!
-245501 has no edges!
-276381 has no edges!
-276382 has no edges!
-277096 has no edges!
-285116 has no edges!
-289432 has no edges!
-289435 has no edges!
-289437 has no edges!
-289438 has no edges!
-289441 has no edges!
-294979 has no edges!
-304425 has no edges!
-304426 has no edges!
-308875 has no edges!
-308876 has no edges!
-329515 has no edges!
-333856 has no edges!
-337383 has no edges!
-337714 has no edges!
-339281 has no edges!
-344028 has no edges!
-350895 has no edges!
-351907 has no edges!
-353255 has no edges!
-353262 has no edges!
-367921 has no edges!
-373961 has no edges!
-373962 has no edges!
-373963 has no edges!
-373964 has no edges!
-378338 has no edges!
-379667 has no edges!
-382177 has no edges!
-404853 has no edges!
-407811 has no edges!
-604841 has no edges!
-605851 has no edges!
-606307 has no edges!
-606960 has no edges!
-607637 has no edges!
-607771 has no edges!
-607772 has no edges!
-610690 has no edges!
-612825 has no edges!
-615271 has no edges!
-615272 has no edges!
-615273 has no edges!
-619229 has no edges!
-628081 has no edges!
-628083 has no edges!
-633248 has no edges!
-633251 has no edges!
-634598 has no edges!
-634600 has no edges!
-638382 has no edges!
-639600 has no edges!
-646251 has no edges!
-649864 has no edges!
-653140 has no edges!
-666457 has no edges!
-668432 has no edges!
-668433 has no edges!
-668572 has no edges!
-670002 has no edges!
-672460 has no edges!
-672462 has no edges!
-672464 has no edges!
-672465 has no edges!
-673905 has no edges!
-676773 has no edges!
-676774 has no edges!
-676776 has no edges!
-676777 has no edges!
-676779 has no edges!
-682797 has no edges!
-684747 has no edges!
-684901 has no edges!
-684902 has no edges!
-684907 has no edges!
-684908 has no edges!
-686303 has no edges!
-686304 has no edges!
-686305 has no edges!
-
-Additionally, a few molecules have missing nodelabels. Those 8 molecules have to be removed manually:
+Additionally, some molecules had missing nodelabels due to unknown reasons:
 mol_id   node_nr
 84276    0
 139615   3
@@ -160,5 +156,3 @@ mol_id   node_nr
 634831   0
 634835   0
 
-b)
-Alternatively, use ac_alt.smi, which has all the molecules mentioned unter a) removed.
