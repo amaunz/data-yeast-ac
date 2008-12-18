@@ -1,3 +1,4 @@
+# restores original numberings from a smiles file
 
 def GetKeys(keys);
     File.open(ARGV[1].to_s, "r") {|file|

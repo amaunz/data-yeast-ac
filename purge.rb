@@ -1,3 +1,5 @@
+# gets a bunch of key values from first field of a file and prints out matching lines from a second
+# used to e.g. filter out activities without structures
 
 def GetKeys(keys);
     File.open(ARGV[1].to_s, "r") {|file|
